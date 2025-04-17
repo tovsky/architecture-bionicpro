@@ -16,13 +16,13 @@ const ReportPage: React.FC = () => {
       setLoading(true);
       setError(null);
 
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/reports`, {
+      const response = await fetch('http://localhost:8000/reports', {
+        credentials: 'include',
         headers: {
           'Authorization': `Bearer ${keycloak.token}`
         }
       });
 
-      
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
